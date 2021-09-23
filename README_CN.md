@@ -81,7 +81,7 @@ Valuation set size: 130
 ### 2.2 COCO-->YOLO:  
 
 `coco2yolov5.py`
-该工具用于解决COCO数据集格式（json）转换为[YOLO]（https://github.com/ultralytics/yolov5)格式（txt）的问题。 
+该工具用于解决COCO数据集格式（json）转换为[YOLO](https://github.com/ultralytics/yolov5) 格式（txt）的问题。 
 **用法:**  
 **Step1:** 将`coco2yolov5.py`复制到你要复制的coco数据集文件夹中（如下图↓）。
 ```

@@ -5,8 +5,9 @@ This is a simple collection of tools for converting annotation file formats for 
 ## 1. Automatic image annotation：
 `auto_annotate_mmdetect.py`  
 This tool is to help you complete a large number of labeling tasks quickly. It is based on the target detection model trained by [mmdetection](https://github.com/open-mmlab/mmdetection).   
-First, you need to use mmdetection and a small amount of **labeled data** (about 200~300 images) to train to get a rough object detection model(e.g. Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). If you don't know how to use mmdetection to train a object detection model, I strongly suggest you read the [tutorial](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md) on mmdetection first.  
-Second, use `auto_annotate_mmdetect.py` to mark the remaining large amount of unmarked data and generate a VOC format (xml) file.Before that, you need to modify some places to specify the name of the annotation object and the place where the annotation file is saved.   
+Usuage:  
+Step1: you need to use mmdetection and a small amount of **labeled data** (about 200~300 images) to train to get a rough object detection model(e.g. Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). If you don't know how to use mmdetection to train a object detection model, I strongly suggest you read the [tutorial](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md) on mmdetection first.  
+Step2: use `auto_annotate_mmdetect.py` to mark the remaining large amount of unmarked data and generate a VOC format (xml) file.Before that, you need to modify some places to specify the name of the annotation object and the place where the annotation file is saved.   
 
 ```
 files_path = '../project/mmdetection/data/image'              # The path of the image folder to be annotated  
@@ -20,15 +21,16 @@ class_dic = {'0': 'cat',
              '2': 'rabbit',  
              '3': 'mouse'}                                    # Class ID --> Class name  
 ```
-Execute `auto_annotate_mmdetect.py`, which will automatically use the model you just trained to generate the corresponding labeled files.               
-Finally, you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
+Step3: `auto_annotate_mmdetect.py`, which will automatically use the model you just trained to generate the corresponding annotation files(xml).               
+Step4: you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
 
 
 ## 2.Conversion of different data set annotation formats:
 `voc2coco.py`
-Usuage:
-Step1: copy voc2coco.py to VOC dataset folder that you are going to transfer (as shown below).
-'
+The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).
+Usuage:  
+Step1: copy `voc2coco.py` to VOC dataset folder that you are going to transfer (as shown below).
+```
   Before:
   dataset_VOC
   |--ImageSets
@@ -36,19 +38,38 @@ Step1: copy voc2coco.py to VOC dataset folder that you are going to transfer (as
   |     |--train.txt
   |     |--val.txt
   |     |--trainval.txt
-  |--Annotations  <--xml files are put there
-  |--JPEGImages   <--images are put there
-  |--voc2coco.py <--you should put it here 
-'
-Step2: excute voc2coco.py.
-'
+  |--Annotations    <--xml files are put there
+  |--JPEGImages     <--images are put there
+  |--voc2coco.py    <--you should put it here 
+```
+Step2: excute `voc2coco.py`. The images will be automatically copied to the specified folder. You only need to change the name of the dataset manually.
+```
 After:
-dataset_COCO
-  |--train  <--images for training are copied there
-  |--val    <--images for valuation are copied there
+dataset_COCO   <--You only need to change the name of the dataset manually
+  |--train     <--images for training are copied there
+  |--val       <--images for valuation are copied there
   |--train.json
   |--val.json
-'
+```
+=======Statistic Details===========  
+Class Name: green_net, Instances: 119  
+Class Name: obj, Instances: 522  
+Class Name: kite, Instances: 152  
+===================================  
+
+========Create train.json DONE========  
+Foud 3 categories: dict_keys(['obj', 'kite', 'green_net']) --> your predefine categories 3: dict_keys(['green_net', 'obj', 'kite'])  
+Category: id --> {'green_net': 783, 'obj': 793, 'kite': 792}  
+=====================================  
+
+========Create val.json DONE========  
+Foud 3 categories: dict_keys(['obj', 'kite', 'green_net']) --> your predefine categories 3: dict_keys(['green_net', 'obj', 'kite'])  
+Category: id --> {'green_net': 783, 'obj': 793, 'kite': 792}  
+=====================================
+
+========Coco Dataset Details========  
+Training set size: 516  
+Valuation set size: 130  
 
 2.2 coco2yolov5.py
 Usuage:

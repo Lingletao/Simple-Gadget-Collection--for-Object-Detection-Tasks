@@ -29,9 +29,9 @@ class_dic = {'0': 'cat',
 
 
 ## 2.Conversion between different annotation formats:
-### 2.1 VOC-->COCO:  
+### 2.1 PASCAL VOC-->COCO:  
 `voc2coco.py`  
-The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).  
+The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually  [PASCAL VOC](host.robots.ox.ac.uk/pascal/VOC/) (xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).  
 **Usuage:**  
 **Step1:** copy `voc2coco.py` to VOC dataset folder that you are going to transfer (as shown below).
 ```

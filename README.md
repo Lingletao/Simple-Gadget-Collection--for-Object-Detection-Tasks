@@ -1,9 +1,9 @@
-# Simple-toolbox-for-Object-detection-tasks
+# Simple-gadget-collection-for-Object-Detection-tasks
 * Automatic image annotation
 * Conversion between different annotation formats
 * Obtain statistical information about your dataset
 
-This is a simple collection of tools for converting annotation file formats for computer vision object detection. The usage method is very simple, you only need to copy the py script file to the folder you need to convert, modify the script, and specify the parameters you need. Please refer to the tutorial for detailed usage. 
+This is a simple collection of gadgets for regular **object detection** tasks. You can also modify it yourself to implement your ideas. It is very simple to use, you just need to copy the python file you need to use, and specify the relevant parameters, and execute it. Please read the following tutorial carefully before using it.
 
 ## 1. Automatic image annotation：
 `auto_annotate_mmdetect.py`  
@@ -28,7 +28,7 @@ class_dic = {'0': 'cat',
 **Step4:** you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
 
 
-## 2. Conversion between different annotation formats:
+## 2.Conversion between different annotation formats:
 ### 2.1 VOC-->COCO:  
 `voc2coco.py`  
 The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).  
@@ -44,7 +44,7 @@ The annotation file format generated using [labelImg](https://github.com/tzutali
   |     |--trainval.txt
   |--Annotations    <--xml files are put there
   |--JPEGImages     <--images are put there
-  |--voc2coco.py    <--you should put it here 
+  |--voc2coco.py    <--you should put it here
 ```
 **Step2:** excute `voc2coco.py`. The images will be automatically copied to the specified folder. You only need to change the name of the dataset manually.
 ```
@@ -77,7 +77,7 @@ Category: id --> {'green_net': 783, 'obj': 793, 'kite': 792}
 Training set size: 516  
 Valuation set size: 130  
 ```  
-  
+ 
 ### 2.2 COCO-->YOLO:  
 
 `coco2yolov5.py`
@@ -109,7 +109,7 @@ After:
         |-labels      <--annotation txt file (for valuation)
 ```
 
-## 3. Obtain statistical information about your dataset:   
+## Obtain statistical information about your dataset:   
 These tools provide statistical methods for different formats of annotation files. You can use the statistical tools to quickly understand the percentage of each sample and determine whether the samples are balanced with each other, providing useful information for your next training and fine-tuning.
 
 `xml_cls_stat.py`

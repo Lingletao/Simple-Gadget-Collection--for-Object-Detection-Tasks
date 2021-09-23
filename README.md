@@ -109,7 +109,7 @@ dataset_yolo
       └────labels      <--annotation txt file (for valuation)
 ```
 
-## Obtain statistical information about your dataset:   
+## 3. Obtain statistical information about your dataset:   
 These tools provide statistical methods for different formats of annotation files. You can use the statistical tools to quickly understand the percentage of each sample and determine whether the samples are balanced with each other, providing useful information for your next training and fine-tuning.
 
 `xml_cls_stat.py`

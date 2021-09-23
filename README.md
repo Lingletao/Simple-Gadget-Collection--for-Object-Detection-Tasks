@@ -83,7 +83,7 @@ Valuation set size: 130
 `coco2yolov5.py`
 This tool is used to solve the problem of converting COCO dataset format (json) to [YOLO](https://github.com/ultralytics/yolov5) format (txt).  
 **Usuage:**  
-**Step1:** copy `coco2yolov5.py` to the coco dataset folder that you are going to transfer (as shown below).  
+**Step1:** copy `coco2yolov5.py` to the coco dataset folder that you are going to transfer. (As show below↓)  
 ```
 Before:
 dataset_coco
@@ -116,7 +116,7 @@ These tools provide statistical methods for different formats of annotation file
 `xml_cls_stat.py` and `json_cls_stat.py` to obtain the statistical information of the annotation file in VOC and COCO format respectively. The usage method is very simple, you need to copy `xml_cls_stat.py` or `json_cls_stat.py` to your VOC or COCO data set folder.  
 It should be noted that the annotation files and images in the VOC format are stored uniformly, and `xml_cls_stat.py` counts the information of the entire dataset. And to use `json_cls_stat.py` you need to specify whether to count `train` or `val`.  
 `json = json.load(open('train.json'))  # Specify train.json`  
-Then execute it, you can get statistics of all categories and the number of instances. As shown below：
+Then execute it, you can get statistics of all categories and the number of instances. (As show below↓)
 ```
 =======Statistic Details===========
 Class Name: DC, Class ID: 2455, Instances: 865
@@ -125,6 +125,19 @@ Class Name: WJ, Class ID: 2449, Instances: 696
 ```
 ### 3.2 Find pictures that contain the specified class 
 `xml_find_picture.py`  
+The usage of `xml_find_picture.py` is very simple, you only need to copy it to the VOC data set folder. Specify the name of the category you need to find,
+`specified_name ='WJ'`
+Finally, execute it. 
+The program will print out the file name containing the specified class, and show how many pictures in total contain the class you specified. (As show below↓)
+```
+···
+machinery561.xml
+machinery394.xml
+machinery394.xml
+machinery225.xml
+machinery084.xml
+There are 881 pictures contain specified category, (CateName=WJ)
+```
 `json_find_picture.py` 
 
 

@@ -124,10 +124,9 @@ Class Name: HC, Class ID: 2448, Instances: 383
 Class Name: WJ, Class ID: 2449, Instances: 696
 ```
 ### 3.2 Find pictures that contain the specified class 
-`xml_find_picture.py`  
-The usage of `xml_find_picture.py` is very simple, you only need to copy it to the VOC data set folder. Specify the name of the category you need to find,
-`specified_name ='WJ'`
-Finally, execute it. 
+`xml_find_picture.py` and `json_find_picture.py`. The usage is exactly the same and very simple, you only need to copy it to the VOC data set folder. Specify the name of the category you need to find,
+`specified_name ='WJ'`   
+Finally, execute it.   
 The program will print out the file name containing the specified class, and show how many pictures in total contain the class you specified. (As show below↓)
 ```
 ···
@@ -138,7 +137,7 @@ machinery225.xml
 machinery084.xml
 There are 881 pictures contain specified category, (CateName=WJ)
 ```
-`json_find_picture.py` 
+
 
 
 ## 4. Modify your dataset:  

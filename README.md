@@ -9,15 +9,25 @@ First, you need to use mmdetection and a small amount of **labeled data** (about
 Second, use `auto_annotate_mmdetect.py` to mark the remaining large amount of unmarked data and generate a VOC format (xml) file.Before that, you need to modify some places to specify the name of the annotation object and the place where the annotation file is saved.   
 `
 files_path = '../project/mmdetection/data/image'              # The path of the image folder to be annotated  
+
 img_save_path = './results'                                   # The path of the annotated images to be saved  
+
 xml_save_path = './Annotations'                               # The path of the image annotation files (xml) to be saved  
+
 cfg = './faster_rcnn_r50_fpn_1x_coco.py'                      # Your model configure file (mmdetection)  
+
 wgt = './epoch_12.pth'                                        # Your model weight file  
+
 device = 'cuda:0'                                             # Use GPU  
+
 class_dic = {'0': 'cat',
+
              '1': 'dog',  
+             
              '2': 'rabbit',  
+             
              '3': 'mouse'}                                    # Class ID --> Class name  
+
 `
 Finally, you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
 

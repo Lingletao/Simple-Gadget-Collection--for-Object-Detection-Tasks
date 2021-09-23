@@ -32,7 +32,7 @@ Step4: you can use [labelImg](https://github.com/tzutalin/labelImg) to **manuall
 `voc2coco.py`
 The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).
 Usuage:  
-Step1: copy `voc2coco.py` to VOC dataset folder that you are going to transfer (as shown below).
+**Step1:** copy `voc2coco.py` to VOC dataset folder that you are going to transfer (as shown below).
 ```
   Before:
   dataset_VOC
@@ -45,7 +45,7 @@ Step1: copy `voc2coco.py` to VOC dataset folder that you are going to transfer (
   |--JPEGImages     <--images are put there
   |--voc2coco.py    <--you should put it here 
 ```
-Step2: excute `voc2coco.py`. The images will be automatically copied to the specified folder. You only need to change the name of the dataset manually.
+**Step2:** excute `voc2coco.py`. The images will be automatically copied to the specified folder. You only need to change the name of the dataset manually.
 ```
 After:
 dataset_COCO   <--You only need to change the name of the dataset manually
@@ -81,8 +81,8 @@ Valuation set size: 130
 
 `coco2yolov5.py`
 This tool is used to solve the problem of converting COCO dataset format (json) to YOLO format (txt).  
-Usuage:
-Step1: copy `coco2yolov5.py` to the coco dataset folder that you are going to transfer (as shown below).  
+Usuage:  
+**Step1:** copy `coco2yolov5.py` to the coco dataset folder that you are going to transfer (as shown below).  
 ```
 Before:
 --dataset_coco
@@ -92,12 +92,12 @@ Before:
 |--val               <--images are saved here (for valuation)
 |--coco2yolov5.py    <--you should put it here
 ```
-Step2: specify the dataset name.
+**Step2:** specify the dataset name.
 ```
 dataset_name = 'test_XXX'                  # specify your dataset name
 dataset_name = dataset_name + '_yolo'
 ```
-Step3: excute `coco2yolov5.py`.
+**Step3:** excute `coco2yolov5.py`.
 ```
 After:
 --dataset_yolo

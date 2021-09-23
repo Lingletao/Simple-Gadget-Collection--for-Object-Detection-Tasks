@@ -142,22 +142,32 @@ There are 881 pictures contain specified category, (CateName=WJ)
 __NOTE: I recommend that you back up your data before proceeding to avoid tragedy.__
 ### 4.1 Remove specified class
 `xml_cls_del.py`  
-Sometimes you will need to delete some special classes, and the workload of manually deleting specified classes is very huge. When you encounter this situation, you can use this tool to delete certain classes you don't need. Don't worry, the program will automatically create a folder called ‘New_Annotation’ to store these modified annotation files, and your original annotation files will not be affected in any way. 
+Sometimes you will need to delete some special classes, and the workload of manually deleting specified classes is very huge. When you encounter this situation, you can use this tool to delete certain classes you don't need.  
+Copy `xml_cls_del.py` to your folder, specify the class you want to delete, and finally execute it.   
+Don't worry, the program will automatically create a folder called ‘New_Annotation’ to store these modified annotation files, and your original annotation files will not be affected in any way. 
 ```
 specified_class_name = 'WJ'  # Specify the name of the class to be deleted  
 ```
 Finally, the program will tell you how many instances have been deleted. (As show below↓)
 ```
-There are 648 objects has been removed.
+There are 648 objects have been removed.
 ```
 
-
 ### 4.2 Modify the name of the specified class
-`xml_cls_namechange.py` and `json_cls_namechange.py`  
-When you need to modify the name of a certain class or merge certain classes, you can use it to achieve. 
-
- 
-
+`xml_cls_namechange.py` or `json_cls_namechange.py`   
+The tools of the VOC (xml) version and COCO (json) version are provided here, and they are used in the same way. When you need to modify the name of a certain class or merge certain classes, you can use it to achieve. 
+Don't worry, the program will automatically create a folder called ‘New_Annotation’ to store these modified annotation files, and your original annotation files will not be affected in any way.  
+Like other tools, you only need to copy `xml_cls_namechange.py` or `json_cls_namechange.py` to your dataset folder, 
+and specify your json file save path:  
+ ```
+json_path = './train.json'	    	#json file path before modification
+json_save_path = './train2.json'	#Modified json file save path 
+```
+specify the name of the class you want to modify, and then execute it. 
+```
+specified_cls_name = "A" 		    #Class name to be modified 
+new_name = "AA"	    	 	        #New class name 
+ ```
 
 ## 5. Simple image data enhancement:  
 `image_data_enhancement.py`

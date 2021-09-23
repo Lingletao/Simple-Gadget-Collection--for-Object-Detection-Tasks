@@ -183,6 +183,3 @@ Specify the folder that needs data enhancement, then select the enhancement meth
 ## 7. Cascade of models:  
 `infer_paddle_2stages.py`
 `infer_mmdet_2stages.py`
-
-
-

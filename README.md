@@ -176,7 +176,8 @@ new_name = "AA"	    	 	        #New class name
 
 ## 6. Use models for inference (prediction):  
 `infer_by_folder_mmdetection.py`  
-Specify the folder that needs data enhancement, then select the enhancement method you need to use according to your needs, and finally execute it. The tool provides six common methods: rotate, flip, brighten, darken, salt and pepper noise, and Gaussian noise. For unneeded methods, just turn their code into comments.  
+Specify the folder that needs data enhancement, then select the enhancement method you need to use according to your needs, and finally execute it.   
+The tool provides 6 common methods: rotate, flip, brighten, darken, salt and pepper noise, and Gaussian noise. For unneeded methods, just turn their code into comments.  
 `file_dir = r'../data/img/'  # Specify the folder that needs data enhancement`
 
 

@@ -7,7 +7,7 @@ This is a simple collection of tools for converting annotation file formats for 
 
 ## 1. Automatic image annotation：
 `auto_annotate_mmdetect.py`  
-This tool is to help you complete a large number of labeling tasks quickly. It is based on the target detection model trained by [mmdetection](https://github.com/open-mmlab/mmdetection).   
+This tool is to help you complete a large number of labeling tasks quickly. It is based on the object detection model trained by [mmdetection](https://github.com/open-mmlab/mmdetection).   
 **Usuage:**  
 **Step1:** you need to use mmdetection and a small amount of **labeled data** (about 200~300 images) to train to get a rough object detection model(e.g. Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). If you don't know how to use mmdetection to train a object detection model, I strongly suggest you read the [tutorial](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md) on mmdetection first.  
 **Step2:** use `auto_annotate_mmdetect.py` to mark the remaining large amount of unmarked data and generate a VOC format (xml) file. Before that, you need to modify some places to specify the name of the annotation object and the place where the annotation file is saved.   

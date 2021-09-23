@@ -123,9 +123,13 @@ Class Name: HC, Class ID: 2448, Instances: 383
 Class Name: WJ, Class ID: 2449, Instances: 696
 ```
 
-## 4. Modify your data set:  
+## 4. Modify your dataset:  
 ### 4.1 Remove specified class
 `xml_cls_del.py`  
+Sometimes you will need to delete some special classes, and the workload of manually deleting specified classes is very huge. When you encounter this situation, you can use this tool to delete certain classes you don't need. Of course, I strongly recommend that you back up your data before proceeding to avoid tragedy. 
+
+
+
 
 ### 4.2 Modify the name of the specified class
 `xml_cls_namechange.py`  

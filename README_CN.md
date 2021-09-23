@@ -9,53 +9,53 @@
 `auto_annotate_mmdetect.py`  
 上万张图像自己一个一个标很烦很累？快使用自动标注吧！  
 该工具是为了帮助您快速完成大量的标注任务。 它是基于[mmdetection](https://github.com/open-mmlab/mmdetection)训练的物体检测模型.   
-**Usuage:**  
-**Step1:** 首先你需要使用mmdetection和少量**标注过的数据** (最少标注大约200~300张图像)来训练一个粗糙的目标检测模型(如：Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). If you don't know how to use mmdetection to train a object detection model, I strongly suggest you read the [tutorial](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md) on mmdetection first.  
+**用法:**  
+**Step1:** 首先你需要使用mmdetection和少量**标注过的数据** (最少标注大约200~300张图像)来训练一个粗糙的目标检测模型(如：Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). 如果您不知道如何使用 mmdetection 来训练对象检测模型，强烈建议您阅读 mmdetection的[教程](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md )
 **Step2:** 用脚本`auto_annotate_mmdetect.py`标记剩余的大量未标记数据并生成VOC格式（xml）文件 .在此之前，需要修改一些地方，指定标注对象的名称和标注文件的保存位置。 
 ```
-files_path = '../project/mmdetection/data/image'              # The path of the image folder to be annotated  
-img_save_path = './results'                                   # The path of the annotated images to be saved  
-xml_save_path = './Annotations'                               # The path of the image annotation files (xml) to be saved  
-cfg = './faster_rcnn_r50_fpn_1x_coco.py'                      # Your model configure file (mmdetection)  
-wgt = './epoch_12.pth'                                        # Your model weight file  
-device = 'cuda:0'                                             # Use GPU  
+files_path = '../project/mmdetection/data/image'              # 要被标注的图片文件夹的路径  
+img_save_path = './results'                                   # 要被保存的标注图像的路径  
+xml_save_path = './Annotations'                               # 要被保存的图像标注文件（xml）的路径  
+cfg = './faster_rcnn_r50_fpn_1x_coco.py'                      # 您的模型配置文件 (mmdetection) 
+wgt = './epoch_12.pth'                                        # 您的模型权重文件  
+device = 'cuda:0'                                             # 使用GPU  
 class_dic = {'0': 'cat',
              '1': 'dog',  
              '2': 'rabbit',  
              '3': 'mouse'}                                    # Class ID --> Class name  
 ```
-**Step3:** `auto_annotate_mmdetect.py`, which will automatically use the model you just trained to generate the corresponding annotation files(xml).               
-**Step4:** you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
+**Step3:** `auto_annotate_mmdetect.py`会自动使用你刚刚训练的模型来生成相应的标注文件（xml）。              
+**Step4:** 你可以使用[labelImg](https://github.com/tzutalin/labelImg) 来**人工矫正（微调）** 那些自动生成的标注文件.   
 
 
-## 2.Conversion between different annotation formats:
+## 2.不同数据集的标注格式之间的转换:
 ### 2.1 PASCAL VOC-->COCO:  
 `voc2coco.py`  
-The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually  [PASCAL VOC](host.robots.ox.ac.uk/pascal/VOC/) (xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to [COCO](https://cocodataset.org)(json).  
-**Usuage:**  
-**Step1:** copy `voc2coco.py` to VOC dataset folder that you are going to transfer (as shown below).
+使用[labelImg](https://github.com/tzutalin/labelImg)生成的标注文件格式通常为[PASCAL VOC](host.robots.ox.ac.uk/pascal/VOC/)(xml)或YOLO( 文本）。 当使用很多模型训练套件（例如mmdetection）时，需要将xml文件转换为[COCO](https://cocodataset.org)(json)。
+**用法:**  
+**Step1:** 将`voc2coco.py`复制到你要转换的VOC数据集文件夹中（如下图）。
 ```
-Before:
+转换前:
 dataset_VOC
   ├─ImageSets
   │  └──Main
   │     ├──train.txt
   │     ├──val.txt
   │     └──trainval.txt
-  ├──Annotations    <--xml files are put there
-  ├──JPEGImages     <--images are put there
-  └──voc2coco.py    <--you should put it here
+  ├──Annotations    <--xml文件放在此处  
+  ├──JPEGImages     <--图像文件放在此处 
+  └──voc2coco.py    <--voc2coco.py文件放在此处 
 ```
-**Step2:** excute `voc2coco.py`. The images will be automatically copied to the specified folder. You only need to change the name of the dataset manually.
+**Step2:** 执行`voc2coco.py`。 图像将自动复制到指定的文件夹。 您只需要手动更改数据集的名称即可。
 ```
-After:
-dataset_COCO   <--You only need to change the name of the dataset manually
-  ├──train     <--images for training are copied there
-  ├──val       <--images for valuation are copied there
+转换后:
+dataset_COCO          <--您只需要手动更改数据集的名称即可
+  ├──train         <--训练集的图像被复制在此处  
+  ├──val           <--验证集的图像被复制在此处    
   ├──train.json
   └──val.json
 ```  
-By the way, it will automatically count information about the kinds your dataset contains and the number of its instances.(like this ↓)  
+顺便说一下，它会自动计算关于你的数据集包含的种类和它的实例数量的信息。（像这样↓） 
 ```
 =======Statistic Details===========  
 Class Name: green_net, Instances: 119  
@@ -81,41 +81,41 @@ Valuation set size: 130
 ### 2.2 COCO-->YOLO:  
 
 `coco2yolov5.py`
-This tool is used to solve the problem of converting COCO dataset format (json) to [YOLO](https://github.com/ultralytics/yolov5) format (txt).  
-**Usuage:**  
-**Step1:** copy `coco2yolov5.py` to the coco dataset folder that you are going to transfer (as shown below).  
+该工具用于解决COCO数据集格式（json）转换为[YOLO]（https://github.com/ultralytics/yolov5)格式（txt）的问题。 
+**用法:**  
+**Step1:** 将`coco2yolov5.py`复制到你要复制的coco数据集文件夹中（如下图↓）。
 ```
 Before:
 dataset_coco
-  ├───train.json        <--annotation json file (for training)
-  ├───val.json          <--annotation json file (for valuation)
-  ├───train             <--images are saved here (for training)
-  ├───val               <--images are saved here (for valuation)
-  └───coco2yolov5.py    <--you should put it here
+  ├───train.json        <--标注文件json (训练集)
+  ├───val.json          <--标注文件json (验证集)
+  ├───train             <--存放训练集图像的文件夹  
+  ├───val               <--存放验证集图像的文件夹  
+  └───coco2yolov5.py    <--`coco2yolov5.py`复制在此处
 ```
-**Step2:** specify the dataset name in `coco2yolov5.py`.
+**Step2:** 在 `coco2yolov5.py` 中指定数据集名称。
 ```
-dataset_name = 'dataset'                  # specify your dataset name
+dataset_name = 'dataset'                  # 指定数据集名称
 dataset_name = dataset_name + '_yolo'
 ```
 **Step3:** excute `coco2yolov5.py`.
 ```
 After:
 dataset_yolo
-├──train┬──images      <--images are saved here (for training)
-│       └──labels      <--annotation txt file (for training)
+├──train┬──images        <--存放训练集图像的文件夹
+│         └──labels        <--标注文件txt (训练集)
 │
-└──val┬────images      <--images are saved here (for valuation)
-      └────labels      <--annotation txt file (for valuation)
+└──val┬────images      <--存放验证集图像的文件夹
+         └────labels      <--标注文件txt (验证集)
 ```
 
-## 3. Obtain statistical information about your dataset:   
-These tools provide statistical methods for different formats of annotation files. You can use the statistical tools to quickly understand the percentage of each sample and determine whether the samples are balanced with each other, providing useful information for your next training and fine-tuning.
+## 3. 统计数据集信息 :   
+这些工具为不同格式的注释文件提供了统计方法。 您可以使用统计工具快速了解每个样本的百分比，并确定样本之间是否平衡，为您接下来的训练和微调提供有用的信息。 
 
 `xml_cls_stat.py`
 `json_cls_stat.py`
 
-## 4. Modify your data set:  
+## 4. 修改标注文件:  
 `xml_cls_del.py`  
 
 `xml_cls_namechange.py`  
@@ -125,14 +125,14 @@ These tools provide statistical methods for different formats of annotation file
 `json_find_picture.py`  
 
 
-## 5. Simple image data enhancement:  
+## 5. 简单的图像数据增强:  
 `image_data_enhancement.py`
 
-## 6. Use models for inference (prediction):  
+## 6. 使用模型进行推理:  
 `infer_paddle_2stages.py`
 
 
-## 7. Cascade of models:  
+## 7. 级联模型:  
 `infer_paddle_2stages.py`
 `inference_mmdet_2stages.py`
 

@@ -109,7 +109,8 @@ dataset_yolo
        └─labels      <--annotation txt file (for valuation)
 ```
 
-## 3. Obtain statistical information about your dataset:   
+## 3. Obtain statistical information about your dataset:  
+### 3.1 Simple statistical information:
 These tools provide statistical methods for different formats of annotation files. You can use the statistical tools to quickly understand the percentage of each sample and determine whether the samples are balanced with each other, providing useful information for your next training and fine-tuning.
 
 `xml_cls_stat.py` and `json_cls_stat.py` to obtain the statistical information of the annotation file in VOC and COCO format respectively. The usage method is very simple, you need to copy `xml_cls_stat.py` or `json_cls_stat.py` to your VOC or COCO data set folder.  
@@ -122,6 +123,10 @@ Class Name: DC, Class ID: 2455, Instances: 865
 Class Name: HC, Class ID: 2448, Instances: 383
 Class Name: WJ, Class ID: 2449, Instances: 696
 ```
+### 3.2 Find pictures that contain the specified class 
+`xml_find_picture.py`  
+`json_find_picture.py` 
+
 
 ## 4. Modify your dataset:  
 ### 4.1 Remove specified class
@@ -129,16 +134,12 @@ Class Name: WJ, Class ID: 2449, Instances: 696
 Sometimes you will need to delete some special classes, and the workload of manually deleting specified classes is very huge. When you encounter this situation, you can use this tool to delete certain classes you don't need. Of course, I strongly recommend that you back up your data before proceeding to avoid tragedy. 
 
 
-
-
 ### 4.2 Modify the name of the specified class
 `xml_cls_namechange.py`  
 `json_cls_namechange.py`  
 
 
-### 4.3 Find pictures that contain the specified class 
-`xml_find_picture.py`  
-`json_find_picture.py`  
+ 
 
 
 ## 5. Simple image data enhancement:  

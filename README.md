@@ -1,5 +1,6 @@
 # Simple-toolbox-for-Object-detection-tasks
-Automatic labeling, conversion of different data set formats, sample size statistics, model cascade 
+Automatic labeling, conversion of different data set formats, sample size statistics, model cascade  
+
 This is a simple collection of tools for converting annotation file formats for computer vision object detection. The usage method is very simple, you only need to copy the py script file to the folder you need to convert, modify the script, and specify the parameters you need. Please refer to the tutorial for detailed usage. 
 
 ## 1. Automatic image annotation：
@@ -26,7 +27,8 @@ Step4: you can use [labelImg](https://github.com/tzutalin/labelImg) to **manuall
 
 
 ## 2.Conversion of different data set annotation formats:
-###2.1 VOC-->COCO:
+###2.1 VOC-->COCO:  
+
 `voc2coco.py`
 The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).
 Usuage:  
@@ -75,7 +77,8 @@ Training set size: 516
 Valuation set size: 130  
 ```  
   
-###2.2 COCO-->YOLO:
+###2.2 COCO-->YOLO:  
+
 `coco2yolov5.py`
 This tool is used to solve the problem of converting COCO dataset format (json) to YOLO format (txt).  
 Usuage:

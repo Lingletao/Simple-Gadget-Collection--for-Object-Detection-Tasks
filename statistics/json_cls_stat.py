@@ -14,7 +14,7 @@ id_name_dic = {}
 for item in categories_section:
     category_name = item['supercategory']
     id = item['id']
-    id_name_dic[id] = category_name
+    id_name_dic[id] = item['name']
     # print('Category name:{}, ID: {}'.format(category_name, id))
 
 for item in annotation_section:

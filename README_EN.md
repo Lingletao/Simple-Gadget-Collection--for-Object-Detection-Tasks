@@ -112,12 +112,10 @@ dataset_yolo
 ## 3. Obtain statistical information about your dataset:   
 These tools provide statistical methods for different formats of annotation files. You can use the statistical tools to quickly understand the percentage of each sample and determine whether the samples are balanced with each other, providing useful information for your next training and fine-tuning.
 
-`xml_cls_stat.py` is used to obtain the statistical information of the annotation file in VOC format 
-
-
-`json_cls_stat.py``json_cls_stat.py` to obtain the statistical information of the annotation file in COCO format. The usage method is very simple, you need to copy `json_cls_stat.py` to your COCO data set folder, and specify the set you need to count（e.g. 'train.json' or 'val.json'）
-`json = json.load(open('train.json'))  # specify 'train.json' or 'val.json'`
-Then execute `json_cls_stat.py`, you can get statistics of all categories and the number of instances. As shown below：
+`xml_cls_stat.py` and `json_cls_stat.py` to obtain the statistical information of the annotation file in VOC and COCO format respectively. The usage method is very simple, you need to copy `xml_cls_stat.py` or `json_cls_stat.py` to your VOC or COCO data set folder.  
+It should be noted that the annotation files and images in the VOC format are stored uniformly, and `xml_cls_stat.py` counts the information of the entire dataset. And to use `json_cls_stat.py` you need to specify whether to count `train` or `val`.  
+`json = json.load(open('train.json'))  # Specify train.json`  
+Then execute it, you can get statistics of all categories and the number of instances. As shown below：
 ```
 =======Statistic Details===========
 Class Name: DC, Class ID: 2455, Instances: 865

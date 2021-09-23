@@ -1,5 +1,7 @@
 # Simple-toolbox-for-Object-detection-tasks
-Automatic labeling, conversion of different data set formats, sample size statistics, model cascade  
+* Automatic image annotation
+* Conversion between different annotation formats
+* Obtain statistical information about your dataset
 
 This is a simple collection of tools for converting annotation file formats for computer vision object detection. The usage method is very simple, you only need to copy the py script file to the folder you need to convert, modify the script, and specify the parameters you need. Please refer to the tutorial for detailed usage. 
 
@@ -26,7 +28,7 @@ class_dic = {'0': 'cat',
 **Step4:** you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
 
 
-## 2.Conversion of different data set annotation formats:
+## 2.Conversion between different annotation formats:
 ### 2.1 VOC-->COCO:  
 `voc2coco.py`  
 The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).  
@@ -107,6 +109,14 @@ After:
         |-labels      <--annotation txt file (for valuation)
 ```
 
+## Obtain statistical information about your dataset:   
+These tools provide statistical methods for different formats of annotation files. You can use the statistical tools to quickly understand the percentage of each sample and determine whether the samples are balanced with each other, providing useful information for your next training and fine-tuning.
+
+`xml_cls_stat.py`
+`json_cls_stat.py`
+
+
+
 image_cropping.py
 
 image_data_enhancement.py
@@ -118,9 +128,6 @@ infer_paddle_2stages.py
 inference_mmdet_2stages.py
 
 json_cls_namechange.py
-
-json_cls_stat.py
-
 json_find_picture.py
 
 
@@ -128,11 +135,9 @@ json_find_picture.py
 prediction_stat_mmdet.py
 
 
-
 xml_cls_del.py
-
 xml_cls_namechange.py
 
-xml_cls_stat.py
+
 
 xml_find_picture.py

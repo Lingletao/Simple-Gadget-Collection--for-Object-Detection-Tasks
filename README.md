@@ -28,7 +28,7 @@ class_dic = {'0': 'cat',
 **Step4:** you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
 
 
-## 2.Conversion between different annotation formats:
+## 2. Conversion between different annotation formats:
 ### 2.1 VOC-->COCO:  
 `voc2coco.py`  
 The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).  
@@ -109,35 +109,42 @@ After:
         |-labels      <--annotation txt file (for valuation)
 ```
 
-## Obtain statistical information about your dataset:   
+## 3. Obtain statistical information about your dataset:   
 These tools provide statistical methods for different formats of annotation files. You can use the statistical tools to quickly understand the percentage of each sample and determine whether the samples are balanced with each other, providing useful information for your next training and fine-tuning.
 
 `xml_cls_stat.py`
 `json_cls_stat.py`
 
+## 4. Modify your data set:  
+`xml_cls_del.py`  
+
+`xml_cls_namechange.py`  
+`json_cls_namechange.py`  
+
+`xml_find_picture.py`  
+`json_find_picture.py`  
+
+
+## 5. Simple image data enhancement:  
+`image_data_enhancement.py`
+
+## 6. Use models for inference (prediction):  
+`infer_paddle_2stages.py`
+
+
+## 7. Cascade of models:  
+`infer_paddle_2stages.py`
+`inference_mmdet_2stages.py`
+
 
 
 image_cropping.py
 
-image_data_enhancement.py
-
 img_crop_by_xml.py
 
-infer_paddle_2stages.py
 
-inference_mmdet_2stages.py
-
-json_cls_namechange.py
-json_find_picture.py
 
 
 
 prediction_stat_mmdet.py
 
-
-xml_cls_del.py
-xml_cls_namechange.py
-
-
-
-xml_find_picture.py

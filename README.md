@@ -138,18 +138,23 @@ machinery084.xml
 There are 881 pictures contain specified category, (CateName=WJ)
 ```
 
-
-
 ## 4. Modify your dataset:  
+__NOTE: I recommend that you back up your data before proceeding to avoid tragedy.__
 ### 4.1 Remove specified class
 `xml_cls_del.py`  
-Sometimes you will need to delete some special classes, and the workload of manually deleting specified classes is very huge. When you encounter this situation, you can use this tool to delete certain classes you don't need. Of course, I strongly recommend that you back up your data before proceeding to avoid tragedy. 
+Sometimes you will need to delete some special classes, and the workload of manually deleting specified classes is very huge. When you encounter this situation, you can use this tool to delete certain classes you don't need. Don't worry, the program will automatically create a folder called ‘New_Annotation’ to store these modified annotation files, and your original annotation files will not be affected in any way. 
+```
+specified_class_name = 'WJ'  # Specify the name of the class to be deleted  
+```
+Finally, the program will tell you how many instances have been deleted. (As show below↓)
+```
+There are 648 objects has been removed.
+```
 
 
 ### 4.2 Modify the name of the specified class
-`xml_cls_namechange.py`  
-`json_cls_namechange.py`  
-
+`xml_cls_namechange.py` and `json_cls_namechange.py`  
+When you need to modify the name of a certain class or merge certain classes, you can use it to achieve. 
 
  
 
@@ -158,22 +163,12 @@ Sometimes you will need to delete some special classes, and the workload of manu
 `image_data_enhancement.py`
 
 ## 6. Use models for inference (prediction):  
-`infer_paddle_2stages.py`
+`infer_by_folder_mmdetection.py`
 
 
 ## 7. Cascade of models:  
 `infer_paddle_2stages.py`
-`inference_mmdet_2stages.py`
+`infer_mmdet_2stages.py`
 
 
-
-image_cropping.py
-
-img_crop_by_xml.py
-
-
-
-
-
-prediction_stat_mmdet.py
 

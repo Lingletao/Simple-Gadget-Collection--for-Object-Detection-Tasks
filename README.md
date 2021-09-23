@@ -6,9 +6,9 @@ This is a simple collection of tools for converting annotation file formats for 
 ## 1. Automatic image annotation：
 `auto_annotate_mmdetect.py`  
 This tool is to help you complete a large number of labeling tasks quickly. It is based on the target detection model trained by [mmdetection](https://github.com/open-mmlab/mmdetection).   
-Usuage:  
-Step1: you need to use mmdetection and a small amount of **labeled data** (about 200~300 images) to train to get a rough object detection model(e.g. Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). If you don't know how to use mmdetection to train a object detection model, I strongly suggest you read the [tutorial](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md) on mmdetection first.  
-Step2: use `auto_annotate_mmdetect.py` to mark the remaining large amount of unmarked data and generate a VOC format (xml) file.Before that, you need to modify some places to specify the name of the annotation object and the place where the annotation file is saved.   
+**Usuage:**  
+**Step1:** you need to use mmdetection and a small amount of **labeled data** (about 200~300 images) to train to get a rough object detection model(e.g. Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). If you don't know how to use mmdetection to train a object detection model, I strongly suggest you read the [tutorial](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md) on mmdetection first.  
+**Step2:** use `auto_annotate_mmdetect.py` to mark the remaining large amount of unmarked data and generate a VOC format (xml) file. Before that, you need to modify some places to specify the name of the annotation object and the place where the annotation file is saved.   
 
 ```
 files_path = '../project/mmdetection/data/image'              # The path of the image folder to be annotated  
@@ -22,16 +22,15 @@ class_dic = {'0': 'cat',
              '2': 'rabbit',  
              '3': 'mouse'}                                    # Class ID --> Class name  
 ```
-Step3: `auto_annotate_mmdetect.py`, which will automatically use the model you just trained to generate the corresponding annotation files(xml).               
-Step4: you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
+**Step3:** `auto_annotate_mmdetect.py`, which will automatically use the model you just trained to generate the corresponding annotation files(xml).               
+**Step4:** you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
 
 
 ## 2.Conversion of different data set annotation formats:
-###2.1 VOC-->COCO:  
-
-`voc2coco.py`
-The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).
-Usuage:  
+### 2.1 VOC-->COCO:  
+`voc2coco.py`  
+The annotation file format generated using [labelImg](https://github.com/tzutalin/labelImg) is usually VOC(xml) or YOLO(txt). When using many model training suites (e.g. mmdetection), you need to convert the xml files to COCO(json).  
+**Usuage:**  
 **Step1:** copy `voc2coco.py` to VOC dataset folder that you are going to transfer (as shown below).
 ```
   Before:
@@ -77,11 +76,11 @@ Training set size: 516
 Valuation set size: 130  
 ```  
   
-###2.2 COCO-->YOLO:  
+### 2.2 COCO-->YOLO:  
 
 `coco2yolov5.py`
 This tool is used to solve the problem of converting COCO dataset format (json) to YOLO format (txt).  
-Usuage:  
+**Usuage:**  
 **Step1:** copy `coco2yolov5.py` to the coco dataset folder that you are going to transfer (as shown below).  
 ```
 Before:
@@ -92,7 +91,7 @@ Before:
 |--val               <--images are saved here (for valuation)
 |--coco2yolov5.py    <--you should put it here
 ```
-**Step2:** specify the dataset name.
+**Step2:** specify the dataset name in `coco2yolov5.py`.
 ```
 dataset_name = 'test_XXX'                  # specify your dataset name
 dataset_name = dataset_name + '_yolo'

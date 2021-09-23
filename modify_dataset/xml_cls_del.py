@@ -16,4 +16,4 @@ for filename in os.listdir(input_dir):
             n = n + 1
             dom.write(new_path, xml_declaration=True)
     m = m + 1
-print("There are %d objects has been removed." % n)
+print("There are %d objects have been removed." % n)

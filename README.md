@@ -93,7 +93,7 @@ Before:
 ```
 **Step2:** specify the dataset name in `coco2yolov5.py`.
 ```
-dataset_name = 'test_XXX'                  # specify your dataset name
+dataset_name = 'dataset'                  # specify your dataset name
 dataset_name = dataset_name + '_yolo'
 ```
 **Step3:** excute `coco2yolov5.py`.

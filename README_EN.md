@@ -1,4 +1,4 @@
-# Simple-gadget-collection-for-Object-Detection-tasks
+# Simple Gadget Collection-for-Object Detection Tasks
 * Automatic image annotation
 * Conversion between different annotation formats
 * Obtain statistical information about your dataset
@@ -116,11 +116,15 @@ These tools provide statistical methods for different formats of annotation file
 `json_cls_stat.py`
 
 ## 4. Modify your data set:  
+### 4.1 Remove specified class
 `xml_cls_del.py`  
 
+### 4.2 Modify the name of the specified class
 `xml_cls_namechange.py`  
 `json_cls_namechange.py`  
 
+
+### 4.3 Find pictures that contain the specified class 
 `xml_find_picture.py`  
 `json_find_picture.py`  
 

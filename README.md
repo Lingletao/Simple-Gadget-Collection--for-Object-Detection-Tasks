@@ -2,7 +2,7 @@
 Automatic labeling, conversion of different data set formats, sample size statistics, model cascade 
 This is a simple collection of tools for converting annotation file formats for computer vision object detection. The usage method is very simple, you only need to copy the py script file to the folder you need to convert, modify the script, and specify the parameters you need. Please refer to the tutorial for detailed usage. 
 
-# 1. Automatic image annotation：
+## 1. Automatic image annotation：
 `auto_annotate_mmdetect.py`  
 This tool is to help you complete a large number of labeling tasks quickly. It is based on the target detection model trained by [mmdetection](https://github.com/open-mmlab/mmdetection).   
 First, you need to use mmdetection and a small amount of **labeled data** (about 200~300 images) to train to get a rough object detection model(e.g. Faster-RCNN: [faster_rcnn_r50_fpn_1x_coco.py](https://github.com/open-mmlab/mmdetection/tree/master/configs/faster_rcnn)). If you don't know how to use mmdetection to train a object detection model, I strongly suggest you read the [tutorial](https://github.com/open-mmlab/mmdetection/blob/master/docs/2_new_data_model.md) on mmdetection first.  
@@ -20,13 +20,12 @@ class_dic = {'0': 'cat',
              '2': 'rabbit',  
              '3': 'mouse'}                                    # Class ID --> Class name  
 ```
-             
+Execute `auto_annotate_mmdetect.py`, which will automatically use the model you just trained to generate the corresponding labeled files.               
 Finally, you can use [labelImg](https://github.com/tzutalin/labelImg) to **manually** correct the automatically generated files.   
 
 
-
-# 2.Conversion of different data set annotation formats:
-2.1 voc2coco.py
+## 2.Conversion of different data set annotation formats:
+`voc2coco.py`
 Usuage:
 Step1: copy voc2coco.py to VOC dataset folder that you are going to transfer (as shown below).
 '

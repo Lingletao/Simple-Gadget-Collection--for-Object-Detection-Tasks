@@ -50,6 +50,8 @@ dataset_COCO   <--You only need to change the name of the dataset manually
   |--val       <--images for valuation are copied there
   |--train.json
   |--val.json
+```  
+By the way, it will automatically count information about the kinds your dataset contains and the number of its instances.  
 ```
 =======Statistic Details===========  
 Class Name: green_net, Instances: 119  
@@ -70,7 +72,9 @@ Category: id --> {'green_net': 783, 'obj': 793, 'kite': 792}
 ========Coco Dataset Details========  
 Training set size: 516  
 Valuation set size: 130  
-
+```  
+  
+  
 2.2 coco2yolov5.py
 Usuage:
  Step1: copy coco2yolov5.py to the coco dataset folder that you are going to transfer (as shown below).

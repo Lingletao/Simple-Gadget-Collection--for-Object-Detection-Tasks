@@ -35,25 +35,25 @@ The annotation file format generated using [labelImg](https://github.com/tzutali
 **Usuage:**  
 **Step1:** copy `voc2coco.py` to VOC dataset folder that you are going to transfer (as shown below).
 ```
-  Before:
-  dataset_VOC
-  |--ImageSets
-  |  |--Main
-  |     |--train.txt
-  |     |--val.txt
-  |     |--trainval.txt
-  |--Annotations    <--xml files are put there
-  |--JPEGImages     <--images are put there
-  |--voc2coco.py    <--you should put it here
+Before:
+dataset_VOC
+  ├─ImageSets
+  │  └──Main
+  │     ├──train.txt
+  │     ├──val.txt
+  │     └──trainval.txt
+  ├──Annotations    <--xml files are put there
+  ├──JPEGImages     <--images are put there
+  └──voc2coco.py    <--you should put it here
 ```
 **Step2:** excute `voc2coco.py`. The images will be automatically copied to the specified folder. You only need to change the name of the dataset manually.
 ```
 After:
 dataset_COCO   <--You only need to change the name of the dataset manually
-  |--train     <--images for training are copied there
-  |--val       <--images for valuation are copied there
-  |--train.json
-  |--val.json
+  ├──train     <--images for training are copied there
+  ├──val       <--images for valuation are copied there
+  ├──train.json
+  └──val.json
 ```  
 By the way, it will automatically count information about the kinds your dataset contains and the number of its instances.(like this ↓)  
 ```
@@ -86,12 +86,12 @@ This tool is used to solve the problem of converting COCO dataset format (json) 
 **Step1:** copy `coco2yolov5.py` to the coco dataset folder that you are going to transfer (as shown below).  
 ```
 Before:
---dataset_coco
-|--train.json        <--annotation json file (for training)
-|--val.json          <--annotation json file (for valuation)
-|--train             <--images are saved here (for training)
-|--val               <--images are saved here (for valuation)
-|--coco2yolov5.py    <--you should put it here
+dataset_coco
+  ├───train.json        <--annotation json file (for training)
+  ├───val.json          <--annotation json file (for valuation)
+  ├───train             <--images are saved here (for training)
+  ├───val               <--images are saved here (for valuation)
+  └───coco2yolov5.py    <--you should put it here
 ```
 **Step2:** specify the dataset name in `coco2yolov5.py`.
 ```
@@ -101,12 +101,12 @@ dataset_name = dataset_name + '_yolo'
 **Step3:** excute `coco2yolov5.py`.
 ```
 After:
---dataset_yolo
-|--train--images      <--images are saved here (for training)
-|       |-labels      <--annotation txt file (for training)
-|
-|--val----images      <--images are saved here (for valuation)
-        |-labels      <--annotation txt file (for valuation)
+dataset_yolo
+├──train┬──images      <--images are saved here (for training)
+│       └──labels      <--annotation txt file (for training)
+│
+└──val┬────images      <--images are saved here (for valuation)
+      └────labels      <--annotation txt file (for valuation)
 ```
 
 ## Obtain statistical information about your dataset:   

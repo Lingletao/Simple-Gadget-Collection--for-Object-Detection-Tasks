@@ -182,5 +182,6 @@ The tool provides 6 common methods: rotate, flip, brighten, darken, salt and pep
 
 
 ## 7. Cascade of models:  
+[Examples of practical application of model cascade](https://github.com/Lingletao/Simple-Gadget-Collection--for-Object-Detection-Tasks/blob/main/Picture0.png)
 `infer_paddle_2stages.py`
 `infer_mmdet_2stages.py`

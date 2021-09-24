@@ -177,7 +177,8 @@ The tool provides 6 common methods: rotate, flip, brighten, darken, salt and pep
   
 ## 6. Use models for inference (prediction):  
 `infer_by_folder_mmdetection.py`  
-mmdetection officially provides scripts and commands for model inference, but they need to use command line operations. More often you may want to make model inferences according to your own ideas. For example, when you deploy a model, your model needs to receive images from the network, or you need to cascade two models to use in these situations It is not so convenient to use the command line according to the official tutorial. Here is a simple reasoning script for you. You can put the pictures you want to reason on in a folder, and then execute the python file. You can also transform it into whatever you need. 
+mmdetection officially provides [scripts and commands for model inference](https://mmdetection.readthedocs.io/en/latest/2_new_data_model.html), but they need to use command line operations. More often you may want to make model inferences according to your own ideas. For example, when you deploy a model, your model needs to receive images from the network, or you need to cascade two models to use in some situations It is not very convenient to use the command line according to the official tutorial. Here is a simple inference script for you.  
+I have provided a simple example. You can put pictures in a folder, and then the program will traverse the pictures in the folder, get the inference result of the model and save it in another folder. It is also very easy to transform, you can transform it into anything you need according to actual production needs, such as cascading.   
 
 
 

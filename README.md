@@ -102,10 +102,10 @@ dataset_name = dataset_name + '_yolo'
 ```
 After:
 dataset_yolo
-├─train┬images      <--images are saved here (for training)
+├─train┬images       <--images are saved here (for training)
 │       └labels      <--annotation txt file (for training)
 │
-└─val┬─images      <--images are saved here (for valuation)
+└─val┬─images        <--images are saved here (for valuation)
        └─labels      <--annotation txt file (for valuation)
 ```
 
@@ -139,7 +139,7 @@ There are 881 pictures contain specified category, (CateName=WJ)
 ```
 
 ## 4. Modify your dataset:  
-__NOTE: I recommend that you back up your data before proceeding to avoid tragedy.__
+__NOTE: I still recommend that you should back up your data before proceeding to avoid tragedy.__
 ### 4.1 Remove specified class
 `xml_cls_del.py`  
 Sometimes you will need to delete some special classes, and the workload of manually deleting specified classes is very huge. When you encounter this situation, you can use this tool to delete certain classes you don't need.  
@@ -165,8 +165,8 @@ json_save_path = './train2.json'	#Modified json file save path
 ```
 specify the name of the class you want to modify, and then execute it. 
 ```
-specified_cls_name = "A" 		    #Class name to be modified 
-new_name = "AA"	    	 	        #New class name 
+specified_cls_name = "A" 	  	    #Class name to be modified 
+new_name = "AA"	    	 	          #New class name 
  ```
 
 ## 5. Simple image data enhancement:  
@@ -175,9 +175,9 @@ Specify the folder that needs data enhancement, then select the enhancement meth
 The tool provides 6 common methods: rotate, flip, brighten, darken, salt and pepper noise, and Gaussian noise. For unneeded methods, just turn their code into comments.  
 `file_dir = r'../data/img/'  # Specify the folder that needs data enhancement`
   
-
 ## 6. Use models for inference (prediction):  
 `infer_by_folder_mmdetection.py`  
+mmdetection officially provides scripts and commands for model inference, but they need to use command line operations. More often you may want to make model inferences according to your own ideas. For example, when you deploy a model, your model needs to receive images from the network, or you need to cascade two models to use in these situations It is not so convenient to use the command line according to the official tutorial. Here is a simple reasoning script for you. You can put the pictures you want to reason on in a folder, and then execute the python file. You can also transform it into whatever you need. 
 
 
 

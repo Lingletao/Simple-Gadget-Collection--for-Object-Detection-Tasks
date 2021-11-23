@@ -1,4 +1,4 @@
-# Simple Gadget Collection-for-Object Detection Tasks
+# Simple Gadget Collection for Object Detection Tasks
 * Automatic image annotation
 * Conversion between different annotation formats
 * Obtain statistical information about your dataset
